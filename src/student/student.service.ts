@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { StudentDto } from './dto/StudentDto';
 
 type Student = {
   studentName: string;
@@ -18,17 +19,12 @@ export class StudentService {
     return this.student;
   }
 
-  addStudent({
-    studentName,
-    className,
-  }: {
-    studentName: string;
-    className: string;
-  }) {
+  addStudent(data: StudentDto) {
     this.student.push({
-      studentName,
-      className,
+      studentName: data.getStudentName(),
+      className: data.getClassName(),
     });
     return 'Add Sucess';
   }
 }
+

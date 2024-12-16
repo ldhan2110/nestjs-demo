@@ -1,4 +1,4 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus, Inject } from '@nestjs/common';
 import { ManagementService } from './management.service';
 
 @Controller('management')
@@ -15,6 +15,7 @@ export class ManagementController {
 
   @Get()
   getHello() {
-    return this.connection;
+     throw new HttpException('error', HttpStatus.AMBIGUOUS);
+    //return this.connection;
   }
 }

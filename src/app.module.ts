@@ -26,6 +26,5 @@ export class AppModule implements NestModule {
       .apply(LoggerMiddleware, LoggerMiddleware)
       .exclude('student')
       .forRoutes('*');
-  };
-};
-
+  }
+}
